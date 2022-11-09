@@ -1,13 +1,13 @@
-package com.dotoku.currencyexchangeserver;
+package com.dotoku.currencyexchangeservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CurrencyExchangeServerApplication {
+public class CurrencyExchangeServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CurrencyExchangeServerApplication.class, args);
+		SpringApplication.run(CurrencyExchangeServiceApplication.class, args);
 	}
 
 }

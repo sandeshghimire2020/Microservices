@@ -1,10 +1,10 @@
-package com.dotoku.currencyexchangeserver;
+package com.dotoku.currencyexchangeservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CurrencyExchangeServerApplicationTests {
+class CurrencyExchangeServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
