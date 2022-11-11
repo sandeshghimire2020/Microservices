@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class ExchangeValue {
     private Long id;
 
+
     @Override
     public String toString() {
         return "ExchangeValue{" +
@@ -20,7 +21,15 @@ public class ExchangeValue {
     private String to;
 
     private BigDecimal convMult;
+    private int port;
 
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
     public ExchangeValue() {
     }
 
