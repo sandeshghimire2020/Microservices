@@ -1,10 +1,21 @@
 package com.dotoku.currencyexchangeservice.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
+@Entity
 public class ExchangeValue {
+    @Id
     private Long id;
+    @Column(name="curr_from")
+    private String from;
+    @Column(name="curr_to")
+    private String to;
 
+    private BigDecimal convMult;
+    private int port;
 
     @Override
     public String toString() {
@@ -16,12 +27,7 @@ public class ExchangeValue {
                 '}';
     }
 
-    private String from;
 
-    private String to;
-
-    private BigDecimal convMult;
-    private int port;
 
     public int getPort() {
         return port;

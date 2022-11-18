@@ -2,6 +2,7 @@ package com.dotoku.currencyexchangeservice.controller;
 
 
 import com.dotoku.currencyexchangeservice.model.ExchangeValue;
+import com.dotoku.currencyexchangeservice.repository.ExchangeValueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +16,13 @@ public class CurrencyExchangeController {
 
     @Autowired
     private Environment environment;
+
+    @Autowired
+    private ExchangeValueRepository repository;
     @GetMapping("/currency-exchange/from/{from}/to/{to}")
     public ExchangeValue retriveExchangeValue(@PathVariable String from, @PathVariable String to){
 
-        ExchangeValue exchangeValue = new ExchangeValue("USA","NRS",100L,BigDecimal.valueOf(130));
+        ExchangeValue exchangeValue = repository.findByFromAndTo(from,to);
         exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
         return exchangeValue;
     }
