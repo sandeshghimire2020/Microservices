@@ -3,15 +3,11 @@ package com.dotoku.currencycalculationservice.controller;
 import com.dotoku.currencycalculationservice.facade.CurrencyExchangeProxy;
 import com.dotoku.currencycalculationservice.model.CalculatedAmount;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class CurrencyCalculationController {
@@ -40,7 +36,7 @@ public class CurrencyCalculationController {
     public CalculatedAmount calculateAmountFeign(@PathVariable String from, @PathVariable String to,
                                             @PathVariable BigDecimal quantity){
 
-        CalculatedAmount calculatedAmount = proxy.retriveExchangeValue(from,to);
+        CalculatedAmount calculatedAmount = proxy.retrieveExchangeValue(from,to);
         return new CalculatedAmount(calculatedAmount.getId(),calculatedAmount.getFrom()
                 ,calculatedAmount.getTo(),calculatedAmount.getConvMult(),
                 quantity,quantity.multiply(calculatedAmount.getConvMult()),calculatedAmount.getPort());
